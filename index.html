@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Bartłomiej Skowron">
+    <meta name="description" content="Free web reaction trainer">
+    <meta name="keywords" content="reaction trainer, reaction, trainer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="icon.png">
+    <title>Reaction trainer</title>
+</head>
+<body>
+    <header>
+        <div class="inner_header side_header">
+            <p>Options</p>
+        </div>
+        <div class="inner_header main_header">
+            <p><a href="index.html">Reaction trainer</a></p>
+        </div>
+        <div class="inner_header side_header">
+            <p>Statistics</p>
+        </div>
+    </header>
+    <main>
+        <button onclick="start_game()" id="main_button">Start game</button>
+        <div id="start_text_container">
+            <div class="start_text start_text1">3...</div>
+            <div class="start_text start_text2">2...</div>
+            <div class="start_text start_text3">1...</div>
+            <div class="start_text start_text_4">Start!</div>
+        </div>
+        <div id="main_game_container">
+            <div id="stopwatch_container"></div>
+            <div class="box box1">z</div>
+            <div class="box box2">x</div>
+            <div class="box box3">n</div>
+            <div class="box box4">m</div>
+        </div>
+    </main>
+<script src="script.js" type="text/javascript"></script>
+</body>
+</html>

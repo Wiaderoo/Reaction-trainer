@@ -1,0 +1,156 @@
+    /* Global styling */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--third_color);
+}
+
+:root{
+    --main-color: #bbbfc1;
+    --second_color: #9b9b9b;
+    --third_color: #202020;
+}
+
+html{
+    font-size: 10px;
+    font-family: 'Racing Sans One', sans-serif;
+}
+
+body{
+    background-color: var(--main-color);
+}
+
+a{
+    text-decoration: none;
+    color: var(--third_color);
+}
+
+button{
+    background-color: var(--second_color);
+    font-family: 'Racing Sans One', sans-serif;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 2.5px 2.5px 0px 2px var(--third_color);
+    transition: 0.12s;
+}
+
+button:active{
+    box-shadow: none;
+    transform: translateY(2px);
+}
+
+    /* Header styling */
+
+header{
+    height: 120px;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.inner_header{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_header p{
+    font-size: 4rem;
+}
+
+.side_header p{
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+    /* Main styling */
+
+main{
+    position: relative;
+    height: calc(100vh - 120px);
+    max-width: 100%;
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main_button{
+    height: 90px;
+    width: 18%;
+    min-width: 220px;
+    font-size: 3rem;
+}
+
+    /* Text styling */
+
+#start_text_container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: none;
+}
+
+.start_text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20rem;
+    opacity: 0;
+    cursor: default;
+}
+
+@keyframes show_text{
+    0%{
+        opacity: 0;
+    }
+    25%{
+        opacity: 1;
+    }
+    75%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+    /* Main game */
+
+#main_game_container{
+    height: 100%;
+    width: 80%;
+    position: relative;
+    align-items: center;
+    justify-content: space-around;
+    display: none;
+}
+
+.box{
+    height: 150px;
+    min-height: 150px;
+    width: 150px;
+    min-width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    border-radius: 50%;
+    font-size: 3rem;
+}
+
+    /* Stopwath styling */
+
+#stopwatch_container{
+    height: auto;
+    width: auto;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 5rem;
+}
