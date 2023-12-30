@@ -128,6 +128,7 @@ main{
     align-items: center;
     justify-content: space-around;
     display: none;
+    transition: 0.3s;
 }
 
 .box{
@@ -153,4 +154,47 @@ main{
     left: 50%;
     transform: translateX(-50%);
     font-size: 5rem;
+}
+
+    /* Final statistics styling */
+
+#final_statistics_container{
+    position: absolute;
+    top: 50%;
+    left: -100%;
+    transform: translate(-50%, -50%);
+    height: 60vh;
+    width: 50%;
+    background-color: var(--second_color);
+    border-radius: 20px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+#main_text{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+}
+
+#final_times{
+    height: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    overflow: hidden;
+}
+
+#average_time_container{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
 }
