@@ -44,12 +44,17 @@ function show_text(){
 
     //Stopwath function
 
-let seconds = 10;
+let seconds = 20;
 let tens = 0;
 
 function stopwatch(){
     if((tens == 0) && (seconds == 0)){
         stopwatch_container.innerHTML = `STOP`;
+        show_statistics();
+        box1.style.backgroundColor = `green`;
+        box2.style.backgroundColor = `green`;
+        box3.style.backgroundColor = `green`;
+        box4.style.backgroundColor = `green`;
       }
       else{
         if(tens == 0){
@@ -92,7 +97,7 @@ function change_box(){
 
 let time_start = 0;
 let time_end = 0;
-let time_reaction_difference = 0;
+let final_time = 0;
 
 function change_box_color(){
     let number_of_box = Math.floor(Math.random() * 4) + 1;
@@ -103,29 +108,66 @@ function change_box_color(){
     //Checking keys
 
 function Checkthebutton(event){
-    if((event.keyCode === 90) && (box1.style.backgroundColor == `red`)){
-        time_reaction_difference = Date.now() - time_start;
-        console.log(time_reaction_difference);
+    if(((tens != 0) && (seconds != 0))){
+        if((event.keyCode === 90) && (box1.style.backgroundColor == `red`)){
+            final_time = Date.now() - time_start;
+            insert_time();
+        }
+        else if((event.keyCode === 88) && (box2.style.backgroundColor == `red`)){
+            final_time = Date.now() - time_start;
+            insert_time();
+        }
+        else if((event.keyCode === 78) && (box3.style.backgroundColor == `red`)){
+            final_time = Date.now() - time_start;
+            insert_time();
+        }
+        else if((event.keyCode === 77) && (box4.style.backgroundColor == `red`)){
+            final_time = Date.now() - time_start;
+            insert_time();
+        }
+        else{
+            document.getElementById(`final_times`).innerHTML += `Bad button...<br>`;
+            number_of_changes--;
+        }
     }
-    else if((event.keyCode === 88) && (box2.style.backgroundColor == `red`)){
-        time_reaction_difference = Date.now() - time_start;
-        console.log(time_reaction_difference);
-    }
-    else if((event.keyCode === 78) && (box3.style.backgroundColor == `red`)){
-        time_reaction_difference = Date.now() - time_start;
-        console.log(time_reaction_difference);
-    }
-    else if((event.keyCode === 77) && (box4.style.backgroundColor == `red`)){
-        time_reaction_difference = Date.now() - time_start;
-        console.log(time_reaction_difference);
-    }
+
+check_change_box();
 
 box1.style.backgroundColor = `green`;
 box2.style.backgroundColor = `green`;
 box3.style.backgroundColor = `green`;
 box4.style.backgroundColor = `green`;
-
-change_box();
 }
 
 document.addEventListener("keydown", Checkthebutton);
+
+    //Checking if set next timeout
+
+function check_change_box(){
+    if((box1.style.backgroundColor == `red`) || (box2.style.backgroundColor == `red`) ||(box3.style.backgroundColor == `red`) || (box4.style.backgroundColor == `red`)){
+        change_box();
+    }
+}
+
+    //Inserting times to statistics
+
+let sum_of_times = 0;
+let number_of_changes = 0;
+let average_time = 0;
+
+function insert_time(){
+    document.getElementById(`final_times`).innerHTML += `${final_time}ms<br>`;
+    number_of_changes++;
+    sum_of_times += final_time;
+}
+
+    //Show final stattistics
+
+function show_statistics(){
+    if(number_of_changes != 0){
+        average_time = Math.round(sum_of_times/number_of_changes);
+    }
+    document.getElementById(`final_statistics_container`).style.left = `50%`;
+    document.getElementById(`average_time_container`).innerHTML += `<p>Your average time: ${average_time}</p>`;
+    main_game_container.style.opacity = `0`;
+}
